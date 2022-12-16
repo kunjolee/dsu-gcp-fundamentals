@@ -12,21 +12,21 @@ class Server {
             user: '/api/user'
         }
 
-        this.middlewares()
-        this.routes()
+        this.middlewares();
+        this.routes();
     }
 
     routes() { 
-        this.app.use(this.paths.user, usersRoute) 
+        this.app.use(this.paths.user, usersRoute); 
     }
 
     middlewares () {
-        this.app.use(cors())
+        this.app.use(cors());
     }
 
     listen(){
         this.app.listen(this.port, () => {
-            console.log(`listening on port ${this.port}`)
+            console.log(`listening on port ${this.port}`);
         })
     }
 

@@ -1,0 +1,2 @@
+# GCP fundamentals
+Initial structure
