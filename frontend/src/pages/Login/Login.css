@@ -1,0 +1,33 @@
+.login__component {
+    width: 400px;
+    min-width: 200px;
+
+    border-radius: 1rem;
+    background-color: var(--white-color);
+    box-shadow: var(--shadow);
+
+    z-index: 500;
+
+    padding: 2rem;
+}
+
+.login__image {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.login__title {
+    margin-top: 2rem;
+}
+
+.login__sign-up-button {
+    margin-left: .5rem;
+    color: var(--fourth-color);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .login__component {
+        width: 300px;
+    }
+}
