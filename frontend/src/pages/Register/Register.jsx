@@ -5,20 +5,51 @@ import { PhotoCamera } from '@mui/icons-material';
 import { useForm } from 'react-hook-form';
 import { isEmail } from '../../utils';
 
-import './Register.css';
 import AuthLayout from '../../Layouts/AuthLayout';
+import { api } from '../../api/axios';
+import { useDispatch } from 'react-redux';
+import { setRegister } from '../../store/slices/auth';
+import { useMessage } from '../../hooks/useMessage';
+
+import './Register.css';
 
 const Register = () => {
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const showMessage = useMessage()
 
   const goSignIn = () => navigate('/login');
 
 
-  const onSave = (form) => {
+  const onSave = async (form) => {
 
-    console.log('good good', form)
+    const formData = new FormData();
+    
+    for (const key in form) {
+      formData.append(key, form[key])
+    } 
+    
+    formData.append('image', form.image[0]);
+
+    try {
+      const { data } = await api.post('/user', formData) 
+
+      localStorage.setItem('token', data.token);
+      dispatch( setRegister( data ) );
+      navigate('/');
+      showMessage( data.msg, 'success');
+
+    } catch (error) {
+      console.log('error', error);
+
+      const { msg='Error contact your admin' } = error.response.data; 
+      showMessage(msg, 'error');
+      localStorage.removeItem('token');
+
+    }
   }
 
 

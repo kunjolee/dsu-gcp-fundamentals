@@ -2,12 +2,16 @@ import { useNavigate } from 'react-router-dom';
 
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 
+import { api } from '../../api/axios';
+import AuthLayout from '../../Layouts/AuthLayout';
+import { setLogin } from '../../store/slices/auth/'
 import { isEmail } from '../../utils';
 import image from '/assets/login_image.svg';
 
 import './Login.css';
-import AuthLayout from '../../Layouts/AuthLayout';
+import { useMessage } from '../../hooks/';
 
 
 const Login = () => {
@@ -15,15 +19,33 @@ const Login = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
+  const dispatch = useDispatch();
+  const showMessage = useMessage();
+
   const goSignUp = () => navigate('/register');
 
-  const onSave = (form) => {
-    reset();
+  const onSave = async (form) => {
+
+    try {
+      
+      const { data } = await api.post('/auth', form);
+    
+      dispatch( setLogin( data ) );
+      showMessage( data.msg, 'success');
+
+      localStorage.setItem('token', data.token);
+
+      navigate('/');
+      
+    } catch (error) {
+      localStorage.removeItem('token');
+      const { data } = error.response;
+      showMessage( `${data.msg}`, 'error' )
+    }
   }
   
   return (
     <AuthLayout>
-
       <Box className='login__component'>
         <form onSubmit={ handleSubmit(onSave) } noValidate>
 
