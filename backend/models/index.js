@@ -1,5 +1,7 @@
-const Server = require('./server')
+const Server = require('./server');
+const User = require('./user');
 
-module.exports = { 
-    Server
+module.exports = {
+    Server,
+    User
 }
