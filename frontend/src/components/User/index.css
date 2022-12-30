@@ -1,0 +1,43 @@
+
+.user-profile__layout {
+    display: grid;
+    justify-content: center;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    padding-bottom: 2rem;
+}   
+
+.user-profile__photo{
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    object-fit: cover;
+    /* grid-template-rows: 300px; */
+    height: 300px;
+}
+
+.user-profile__album {
+    border-radius: 2rem;
+    height: 100%;
+    background-color: var(--third-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.user-profile__photo_card_action,
+.user-profile__album_card_action {
+    border-radius: 2rem !important;
+ }
+
+.user-profile__album_card_action {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.user-profile__album_card_action:hover,
+.user-profile__photo_card_action:hover {
+    background-color: transparent !important;
+}

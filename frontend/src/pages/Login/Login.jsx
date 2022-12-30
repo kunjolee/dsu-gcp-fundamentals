@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 
 import { api } from '../../api/axios';
-import AuthLayout from '../../Layouts/AuthLayout';
+import AuthLayout from '../../Layouts/Auth/AuthLayout';
 import { setLogin } from '../../store/slices/auth/'
 import { isEmail } from '../../utils';
 import image from '/assets/login_image.svg';
@@ -39,8 +39,9 @@ const Login = () => {
       
     } catch (error) {
       localStorage.removeItem('token');
-      const { data } = error.response;
-      showMessage( `${data.msg}`, 'error' )
+      console.log(error)
+      const { msg='Error - contact your admin' } = error?.response?.data;
+      showMessage( `${msg}`, 'error' )
     }
   }
   
@@ -76,7 +77,7 @@ const Login = () => {
               sx={{mb: '1rem'}}
             />
             <TextField 
-              type='password'
+              // type='password'
               fullWidth
               label='Password'
               variant='standard' 

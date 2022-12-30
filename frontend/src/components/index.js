@@ -1,1 +1,13 @@
+export { default as AlbumsUserProfile } from './User/AlbumsUserProfile' 
+export { default as Navbar } from './ui/Navbar' 
+export { default as NotHaveMessage } from './NotHaveMessage' 
+export { default as PhotoCard } from './Photo/PhotoCard' 
+export { default as PhotosUserProfile } from './User/PhotosUserProfile' 
 export { default as PrivateRouter } from './PrivateRouter' 
+export { default as Sidebar } from './ui/Sidebar' 
+export { default as Spinner } from './Spinner' 
+export { default as UserImage } from './User/UserImage' 
+export { default as UserRouting } from './User/UserRouting' 
+export { default as AlbumRouting } from './Album/AlbumRouting' 
+export { default as PhotoRouting } from './Photo/PhotoRouting' 
+

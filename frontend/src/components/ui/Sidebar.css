@@ -1,0 +1,128 @@
+.sidebar {
+    height: calc(100vh - 30px);
+    width: 80%;
+    position: fixed;
+    top: 0;
+    background-color: var(--white-color);
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    box-shadow: -1px 7px 5px -2px rgba(189,189,189,0.75);
+    -webkit-box-shadow: -1px 7px 5px -2px rgba(189,189,189,0.75);
+    -moz-box-shadow: -1px 7px 5px -2px rgba(189,189,189,0.75); 
+    z-index: 300;
+    transition: transform .2s ease;
+    transform: translateX(-100%);
+}
+
+.sidebar__open { 
+    transform: translateX(0);
+}
+
+.sidebar__close_button{
+    margin-left: 10px !important;
+}
+
+.sidebar__close_button:hover {
+    background-color: var(--third-color) !important;
+}
+
+.sidebar__list_container {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+}
+
+@media screen and (min-width: 650px) {
+        
+    .sidebar {
+        width: auto;
+        display: block;
+        position: sticky;
+        transform: translateX(0);
+        width: 230px;
+    }
+
+    .sidebar__close_button {
+        display: none !important;
+    }
+
+    .sidebar__list_container {
+        height: 100%;
+    }
+    
+
+}
+
+ .sidebar__logo {
+     display: flex;
+     align-items: center;
+     padding-left: 16px;
+     padding-bottom: 1rem;
+ }
+
+ .sidebar__image { 
+     height: 41px;
+ }
+
+ .sidebar__title {
+     margin-left: 1rem;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     font-weight: 500;
+     font-size: 25px;
+ }
+
+ .sidebar__subtitle {
+     font-weight: 400;
+     font-size: 20px;
+ }
+
+ .sidebar__list {
+     flex: 1;
+     overflow-y: scroll;
+ }
+
+ .sidebar__list::-webkit-scrollbar {
+     width: 9px;
+ }
+ .sidebar__list::-webkit-scrollbar-thumb {
+     border-radius: 1rem;
+     /* background-color: rgb(240, 236, 236); */
+     background-color: var(--third-color);
+ }
+
+ .sidebar__listItemIcon {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+ }
+ .sidebar__listItemIcon img{
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+ }
+
+ .sidebar__link {
+    text-decoration: none;
+    color: inherit;
+ }
+
+.sidebar__link--active span {
+    font-weight: bolder;
+    width: 100%;
+    border-right: solid 2px var(--black-color);
+ }
+
+.sidebar__link--active svg {
+    color: var(--black-color);
+}
+
+
+
+.sidebar__button_logout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

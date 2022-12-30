@@ -1,1 +1,2 @@
-export * from './validationsForm'
+export * from './validationsForm';
+export * from './routing'

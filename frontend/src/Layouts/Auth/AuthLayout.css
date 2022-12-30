@@ -1,5 +1,5 @@
 .auth__page {
-    background-color: #EDF2F8;
+    background-color: var(--third-color);
     height: 100vh;
     overflow: hidden;
     position: relative;
@@ -55,7 +55,7 @@
     right: 2rem;
 }
 
-.auth__circle--gray { 
+.auth__circle--purple { 
     background-color: var(--second-color);
     width: 20px;
     height: 20px;

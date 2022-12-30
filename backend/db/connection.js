@@ -12,7 +12,7 @@ const db = new Sequelize( URI, {
     dialect: 'postgres'
 });
 
-// db.sync();
+db.sync();
 
 module.exports = db
 

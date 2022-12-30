@@ -1,0 +1,45 @@
+.photo__card{
+    position: relative;
+
+}
+
+.photo__items{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+.photo__items:hover {
+    opacity: 1;
+}
+
+.photo__item {
+    z-index: 100;
+    position: absolute !important;
+    height: 35px;
+    width: 35px;
+    background-color: var(--white-color) !important;
+    opacity: .8;
+}
+
+.photo__item:hover {
+    opacity: 1;
+    background-color: var(--white-color) !important;
+}
+
+.photo__item--navigate {
+    top: 0;
+    left: 0;
+}
+.photo__item--favorite {
+    top: 0;
+    right: 0;
+
+}
+.photo__item--delete {
+    bottom: 0;
+    right: 0;
+}

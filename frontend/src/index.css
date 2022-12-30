@@ -6,8 +6,12 @@
     --fourth-color: #41A8A4;
     --fifth-color: #39304d;
     --white-color: #fff;
+    --red-color: #ef4444;
+    --page-color: #f9fafb;
+    --black-color: #000;
     --text-color: #9ca3b0;
-    --shadow:box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    --shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    --second-font: 'Alegreya', serif;
 }
 
 * {
@@ -31,6 +35,7 @@ img {
     max-width: 100%;
     height: auto;
 }
+
 
 button:hover {
     background-color: var(--main-variant-color) !important;

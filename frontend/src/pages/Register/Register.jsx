@@ -5,7 +5,7 @@ import { PhotoCamera } from '@mui/icons-material';
 import { useForm } from 'react-hook-form';
 import { isEmail } from '../../utils';
 
-import AuthLayout from '../../Layouts/AuthLayout';
+import AuthLayout from '../../Layouts/Auth/AuthLayout';
 import { api } from '../../api/axios';
 import { useDispatch } from 'react-redux';
 import { setRegister } from '../../store/slices/auth';
@@ -23,8 +23,12 @@ const Register = () => {
 
   const goSignIn = () => navigate('/login');
 
-
   const onSave = async (form) => {
+    const { image } = form;
+    const file = image[0]
+    
+    if(image.length === 0) return showMessage('Please upload your image!', 'error');
+    if (file.size > ( 5 * 1024 * 1024)) return showMessage('File too large!', 'error');
 
     const formData = new FormData();
     
@@ -32,7 +36,7 @@ const Register = () => {
       formData.append(key, form[key])
     } 
     
-    formData.append('image', form.image[0]);
+    formData.append('image', file);
 
     try {
       const { data } = await api.post('/user', formData) 
@@ -45,7 +49,7 @@ const Register = () => {
     } catch (error) {
       console.log('error', error);
 
-      const { msg='Error contact your admin' } = error.response.data; 
+      const { msg='Error - contact your admin' } = error.response.data; 
       showMessage(msg, 'error');
       localStorage.removeItem('token');
 

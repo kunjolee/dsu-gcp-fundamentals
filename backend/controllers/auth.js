@@ -6,7 +6,7 @@ const bcryptjs = require('bcryptjs');
 const { generateJWT, verifyJWT } = require('../helpers');
 
 const login = async ( req = request, res = response ) => {
-    // TODO: login done now i have to implement it to the frontend part
+    
     try {
         
         const { email='', password='' } = req.body;

@@ -1,0 +1,19 @@
+
+
+.main {
+    display: flex;
+}
+
+.app__layout {
+    background-color: var(--page-color);
+    min-height: 100vh;
+    padding: 1rem;
+    flex: 1;
+}
+
+@media screen and (min-width: 650px) {
+    .app__layout {
+        padding: 1rem 3rem;
+        flex: 1;
+    }
+}

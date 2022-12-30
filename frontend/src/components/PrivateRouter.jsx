@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Outlet, useNavigate } from 'react-router-dom';
 import { api } from '../api/axios';
-import { AppLayout } from '../Layouts/';
 import { setLogin } from '../store/slices/auth';
 
 const PrivateRouter = () => {
@@ -38,9 +37,7 @@ const PrivateRouter = () => {
     }, []);
 
     return auth && (
-        <AppLayout>
-            <Outlet />
-        </AppLayout>
+        <Outlet />
     ) 
 }
 export default PrivateRouter

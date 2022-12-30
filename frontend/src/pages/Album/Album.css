@@ -1,0 +1,19 @@
+
+.album__button {
+    z-index: 100;
+    position: fixed !important;
+    height: 35px;
+    width: 35px;
+    background-color: var(--white-color) !important;
+    opacity: .8;
+}
+
+.album__button:hover {
+    opacity: 1;
+    background-color: var(--white-color) !important;
+}
+
+.album__button--delete {
+    bottom: 1rem;
+    right: 2rem;
+}

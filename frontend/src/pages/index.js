@@ -1,3 +1,9 @@
-export { default as Login } from './Login/Login'
-export { default as Register } from './Register/Register'
-export { default as Home } from './Home'
+export { default as Home } from './Home/Home';
+export { default as Login } from './Login/Login';
+export { default as Register } from './Register/Register';
+export { default as CreateAlbum } from './CreateAlbum/CreateAlbum';
+export { default as CreatePhoto } from './CreatePhoto/CreatePhoto';
+export { default as Album } from './Album/Album';
+export { default as HomePage } from './Home/HomePage';
+export { default as Photo } from './Photo/Photo';
+export { default as UserProfile } from './UserProfile/UserProfile';

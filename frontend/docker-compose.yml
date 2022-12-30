@@ -1,0 +1,8 @@
+ version: '3.8'
+
+ services:
+  app: 
+    container_name: gcp-frontend-app
+    image: gcr.io/gcp-fundamentals-372116/frontend-amd:latest 
+    ports:
+      - 4000:80

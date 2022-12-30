@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-api
+  labels:
+    app: backend-api
+spec:
+  selector:
+    matchLabels:
+      app: backend-api
+  template:
+    metadata:
+      labels:
+        app: backend-api
+    spec:
+      containers:
+      - name: backend-api
+        image: gcr.io/gcp-fundamentals-372116/backend-amd:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports: 
+        - containerPort: 9001
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: backend-api
+  ports:
+    - protocol: TCP
+      port: 9500
+      targetPort: 9001
+  type: LoadBalancer

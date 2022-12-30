@@ -33,7 +33,7 @@ const save = async ( req = request, res = response ) => {
             email
         });
 
-        const token = await generateJWT(user.id, user.email)
+        const token = await generateJWT(user.id, user.email);
 
         res.status(201).json({
             msg: 'User saved successfully',
@@ -50,12 +50,21 @@ const save = async ( req = request, res = response ) => {
     }
 }
 
-const get = async ( req, res ) => {
+const get = async ( req = request, res = response ) => {
+    try {
+        const users = await User.findAll();
+           
+        res.status(200).json({
+            users
+        });
+        
+    } catch (error) {
+        console.log('Error server getting users - controllers', error);
 
-   
-    res.status(200).json({
-        msg: 'everything okay!',
-    });
+        res.status(500).json({
+            msg: 'Error server - contact your admin'
+        });
+    }
 }
 
 module.exports = {

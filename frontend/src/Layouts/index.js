@@ -1,2 +1,3 @@
-export { default as AuthLayout } from './AuthLayout'
-export { default as AppLayout } from './AppLayout'
+export { default as AuthLayout } from './Auth/AuthLayout'
+export { default as AppLayout } from './App/AppLayout'
+export { default as MasonryLayout } from './Masonry/MasonryLayout'

@@ -10,7 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-*.local
+*.localc
 .env
 postgres_data
 
@@ -24,3 +24,5 @@ postgres_data
 *.njsproj
 *.sln
 *.sw?
+
+gcp-fundamentals-372116-b914cd7ab424.json

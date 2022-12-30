@@ -1,9 +1,10 @@
 const path = require('path');
 const { Storage } = require('@google-cloud/storage');
+const { GOOGLE_APPLICATION_CREDENTIALS } = require('./environment')
 const Multer = require('multer');
 
 const gcStorage = new Storage({
-    keyFilename: path.join(__dirname, '../gcp-fundamentals-372116-b914cd7ab424.json'),
+    keyFilename: path.join(__dirname, GOOGLE_APPLICATION_CREDENTIALS ),
     projectId: 'gcp-fundamentals-372116',
 });
 

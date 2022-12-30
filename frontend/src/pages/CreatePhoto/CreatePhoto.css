@@ -1,0 +1,82 @@
+.photo { 
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 95%;
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 1000px) {
+    .photo { 
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .photo { 
+        flex-direction: row;
+        width: 85%;
+    }
+}
+
+.photo__drop {
+    height: 450px;
+    padding: 1rem;
+    background-color: rgba(240, 240, 240, 0.74);
+}
+
+
+@media screen and (min-width: 1200px) {
+    .photo__drop { 
+        width: 50%;
+    }
+}
+
+.photo__drop_image {
+    height: 100%;
+    border: 2px dotted rgba(209, 213, 219, 0.74);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.photo__file {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;    
+}
+
+.photo__file_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo__file_extensions {
+    color: var(--text-color);
+}
+
+.photo__drop_image input {
+    color: var(--black-color);
+}
+
+.photo__drop_image input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.photo__form {
+    height: 450px;
+    /* padding: 2rem; */
+}
+
+@media screen and (min-width: 1200px) {
+    .photo__form { 
+        width: 50%;
+    }
+}
+

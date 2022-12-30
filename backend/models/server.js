@@ -3,7 +3,12 @@ const cors = require('cors');
 
 const db = require('../db/connection');
 const { APP_PORT } = require('../conf/environment');
-const { usersRoute, authRoute } = require('../routes/');
+const { 
+    usersRoute,
+    authRoute, 
+    albumsRoute, 
+    photosRoute,
+} = require('../routes/');
 
 class Server {
 
@@ -11,8 +16,10 @@ class Server {
         this.app = express();
         this.port = APP_PORT
         this.paths = {
-            user: '/api/user',
-            auth: '/api/auth',
+            album:       '/api/album',
+            auth:        '/api/auth',
+            photo:       '/api/photo',
+            user:        '/api/user',
         }
 
         this.database();
@@ -37,8 +44,10 @@ class Server {
     }
 
     routes() { 
-        this.app.use(this.paths.user, usersRoute); 
+        this.app.use(this.paths.album, albumsRoute); 
+        this.app.use(this.paths.photo, photosRoute); 
         this.app.use(this.paths.auth, authRoute); 
+        this.app.use(this.paths.user, usersRoute); 
     }
 
 

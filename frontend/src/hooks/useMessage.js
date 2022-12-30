@@ -4,10 +4,10 @@ export const useMessage = () => {
 
     const { enqueueSnackbar } = useSnackbar();
 
-    return ( message, variant ) => {
+    return ( message, variant, time=2000 ) => {
         enqueueSnackbar(message, {
             variant,
-            autoHideDuration: 2000,
+            autoHideDuration: time,
             anchorOrigin: {
                 vertical: 'top',
                 horizontal: 'right'
