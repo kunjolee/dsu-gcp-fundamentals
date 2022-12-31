@@ -10,8 +10,6 @@ Create vm
 gcloud compute instances create "frontend-app-vm" --machine-type "n1-standard-1"
 ```
 
-Autorizar docker en la vm
-
 ```
 gcloud auth configure-docker
 
@@ -94,4 +92,22 @@ docker tag frontend-amd:latest gcr.io/gcp-fundamentals-372116/frontend-amd:lates
 docker push gcr.io/gcp-fundamentals-372116/frontend-amd:latest 
 ```
 
+
+LoadBalancer 
+
+```
+gcloud compute addresses create network-lb-ip-1
+
+gcloud compute http-health-checks create load-balancer-check 
+
+gcloud compute target-pools create www-pool --region us-central1 --http-health-check load-balancer-check
+
+gcloud compute target-pools add-instances www-pool --instances frontend-app-vm,frontend-app2-vm,frontend-app3-vm
+
+gcloud compute forwarding-rules create frontend-vm-rule  \
+    --region us-central1 \
+    --ports 4000 \
+    --address network-lb-ip-1 \
+    --target-pool www-pool
+```
 
