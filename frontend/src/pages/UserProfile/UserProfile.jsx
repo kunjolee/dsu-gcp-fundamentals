@@ -38,7 +38,6 @@ const UserProfile = () => {
   }, []);
 
 
-  const backToHome = () => navigate('/');
   const changeLayout = ( type = 'photos' ) => setTypeLayout(type) ;
 
 
@@ -62,7 +61,6 @@ const UserProfile = () => {
         >
           <IconButton 
             className='user-profile__button '
-            onClick={ backToHome }
           >
             <ArrowBackRounded fontSize='medium' sx={{ color: 'var(--black-color)' }}/>
           </IconButton>
