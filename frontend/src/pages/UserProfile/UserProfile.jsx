@@ -57,7 +57,9 @@ const UserProfile = () => {
             alt='user-image' 
             
         />
-        <Box className='user-profile__button_container user-profile__button_container--back'>
+        <a href='http://35.192.147.166:4000/' 
+          className='user-profile__button_container user-profile__button_container--back'
+        >
           <IconButton 
             className='user-profile__button '
             onClick={ backToHome }
@@ -65,7 +67,7 @@ const UserProfile = () => {
             <ArrowBackRounded fontSize='medium' sx={{ color: 'var(--black-color)' }}/>
           </IconButton>
           <p>Back to home</p>
-        </Box>
+        </a>
         
       </Box>
       <Box className='user-profile__info'>
