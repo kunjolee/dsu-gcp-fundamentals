@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 
 const db = require('../db/connection');
+const { requestLogger } = require('./logger')
 
 const { 
     usersRoute,
@@ -31,6 +32,7 @@ const middlewares = async () => {
         next();
     })
     app.use( express.static('public') );
+    app.use( requestLogger )   
 }
 
 const routes = async () =>  { 

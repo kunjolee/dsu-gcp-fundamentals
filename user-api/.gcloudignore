@@ -42,5 +42,3 @@ postgres_data
 *.njsproj
 *.sln
 *.sw?
-
-gcp-fundamentals-372116-b914cd7ab424.json

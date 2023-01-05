@@ -1,5 +1,7 @@
 const { response } = require('express')
-const db = require('../db/connection')
+const db = require('../db/connection');
+
+const { logSuccess, logFailure } = require('../conf/logger')
 
 const getProfile = async(req, res = response ) => {
     try {
@@ -8,6 +10,11 @@ const getProfile = async(req, res = response ) => {
         const [ validationResults ] = await db.query(`select id from users where id = ${ idUser }`);
     
         if(validationResults.length < 1){
+            logFailure('User not found', {
+                action: 'GET user-profile',
+                photos: [],
+                albums: []
+            });
             return res.status(400).json({
                 msg: `User not found`
             });
@@ -29,14 +36,33 @@ const getProfile = async(req, res = response ) => {
             db.query( usersQuery ),
         ])
 
+        const photos = photosResults;
+        const albums = albumsResults;
+        const user = usersResults[0];
+
+        const eventInfo = {
+            action: 'GET user-profile',
+            photos, 
+            albums,
+            user
+        }
+
+        logSuccess('Request accepted', eventInfo);
+
         res.json({
-            user: usersResults[0],
-            photos: photosResults,
-            albums: albumsResults
+            user,
+            photos,
+            albums,
         });
         
     } catch (error) {
         console.log('error user profile API - contact your admin', error);
+        logFailure('Failed getting user profile', {
+            action: 'GET user-profile',
+            photos: [],
+            albums: []
+        });
+
         res.status(500).json({
             msg: 'Error getting user profile - contact your admin'
         })
